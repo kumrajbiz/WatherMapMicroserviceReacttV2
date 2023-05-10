@@ -1,0 +1,46 @@
+version: '3'
+
+
+services:
+  serviceregistry:
+    image: kumrajbiz/service_registry:v0.0.2
+    network_mode: host
+    environment:
+      - SPRING_PROFILES_ACTIVE=native,docker    
+    expose:
+      - "8761"
+    ports:
+      - "8761:8761"
+    environment:
+      - EUREKA_CLIENT_REGISTER-WITH-EUREKA=false
+      - EUREKA_CLIENT_FETCH-REGISTRY=false
+  weatherapi:
+    image: kumrajbiz/weather_map_api_ms:v0.0.2
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker,native
+    expose:
+      - "8088"
+    ports:
+      - "8088:8088"
+    depends_on:
+      - serviceregistry
+    environment:
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://serviceregistry:8761/eureka/
+      - EUREKA_CLIENT_REGISTER-WITH-EUREKA=true
+      - EUREKA_CLIENT_FETCH-REGISTRY=true
+  weatherclient2:
+    image: kumrajbiz/weather_client_ms:v0.0.2
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker,native
+    expose:
+      - "8888"
+    ports:
+      - "8888:8888"
+    depends_on:
+      - weatherapi
+      - serviceregistry
+    environment:
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://serviceregistry:8761/eureka/
+      - EUREKA_CLIENT_REGISTER-WITH-EUREKA=true
+      - EUREKA_CLIENT_FETCH-REGISTRY=true
+  
