@@ -1,0 +1,44 @@
+spring :
+  application :
+    name : weathermapapi
+
+eureka :
+  client :
+    serviceUrl :
+      #defaultZone : ${EUREKA_SERVER_URL:http://service-registry:8761/eureka/}
+      #defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://serviceregistry:8761/eureka/
+    register-with-eureka : true
+    fetch-registry : true
+    
+server :
+  port : 8088
+  shutdown : graceful
+  
+management :
+  health :
+    livenessstate :
+      enabled : true
+    readinessstate :
+      enabled : true
+  info :
+    env :
+      enabled : true
+  server :
+    add-application-context-header : true
+  endpoints :
+    enabled-by-default : false
+    web :
+      exposure :
+        include : health, prometheus, info, openapi, swagger-ui
+  endpoint :
+    health :
+      enabled : true
+      show-details : always
+      probes :
+        enabled : true
+    prometheus :
+      enabled : true
+    info :
+      enabled : true
+
