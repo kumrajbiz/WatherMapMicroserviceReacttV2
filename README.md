@@ -68,10 +68,11 @@ you can deploy the application to an AWS environment using the AWS CLI. You'll n
 
 bash
 Copy code
+```
 ./build-docker-images.sh
 ./deploy-to-ecs.sh
+```
 This will build the Docker images and deploy them to an Amazon Elastic Container Service (ECS) cluster.
-
 
 ## CICD Integration
 
