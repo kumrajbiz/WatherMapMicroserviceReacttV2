@@ -1,3 +1,4 @@
+# WeatherMap React and Springboot Microservices
 This is a project consisting of 3 microservices built with Spring Boot and 1 microservice built with React as the UI. The project allows users to retrieve weather information for a specified location.
 
 Microservices
