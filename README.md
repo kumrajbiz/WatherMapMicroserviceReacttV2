@@ -43,6 +43,7 @@ https://api.openweathermap.org/data/2.5/weather?q=${search}&units=metric&appid=a
 ## Swagger integration 
 
 Swagger configured, it generates the API documentation automatically based on the annotations used in the controllers and models. The API documentation is accessible through the URL path,
+Only accessible for project WeatherMapAPIv3-Mocroservice2 Microservice port will be 8888 and host depend on environmment. example localhost, docker IP and aws provided IP6 address.
 ```
 http://{host}:{port}/swagger-ui.html
 ```
