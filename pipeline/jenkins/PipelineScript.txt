@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+	
+	tools {
+		jdk 'jdk11'
+		maven 'maven3'
+	}
+	
+    stages {
+        stage('Build') {
+            steps {
+                sh 'mvn clean install'
+            }
+        }
+        stage('Docker Build') {
+            steps {
+                sh 'docker build -t dockerfile .'
+                sh 'docker build -t weathermap-api-v3-microservice-3 ./WeatherMapAPIv3-Mocroservice3'
+                sh 'docker build -t weathermap-client-react ./WeatherMapClientReact'
+            }
+        }
+        stage('Docker Push') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+                    sh 'echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin'
+                    sh 'docker push kumrajbiz/weathermap-api-v3-microservice-2'
+                    sh 'docker push kumrajbiz/weathermap-api-v3-microservice-3'
+                    sh 'docker push kumrajbiz/weathermap-client-react'
+                }
+            }
+        }
+    }
+}
