@@ -1,37 +1,39 @@
 # WeatherMap React and Springboot Microservices
+This system provides an efficient and scalable way of retrieving and displaying weather information to users. Its microservice architecture allows for each service to be developed and deployed independently, enabling faster iteration and development.
 This is a project consisting of 3 microservices built with Spring Boot and 1 microservice built with React as the UI. The project allows users to retrieve weather information for a specified location.
 
-# Microservices
+# WeatherMap Sequence diagram
+```
+![WeatherMapSequence](https://github.com/kumrajbiz/WatherMapMicroserviceReacttV2/blob/prod/WeatherMapSequence.png)
+```
 
+# Architecture
+```
+The system follows a microservice architecture pattern, where each service is responsible for a specific function and communicates with other services using RESTful APIs.
+```
+## Weather Map Client
+```
+The weather map client is responsible for handling user requests for weather information. It validates the user input to ensure it contains only alphabetic characters and then sends a request to the weather map API.
+```
+## Weather Map API
+```
+The weather map API is responsible for communicating with the OpenWeatherMap API to retrieve weather information for the specified location. It processes the response and stores it in JSON format before sending it back to the weather map client.
+```
 ## Service Registry
+```
+The Eureka server is a service registry and discovery server that enables services to find and communicate with each other.
+```
+## React UI
+```
+The React-based UI provides users with a graphical interface for requesting weather information. based on request/response with the weather map client. Info provided in form of JSON or XML format and processed further at UI.
 
-The service registry is responsible for registering and tracking the location of all the microservices in the system. It is built using the Spring Cloud Eureka server. All the other microservices will register with the service registry on startup and will be able to discover other microservices by querying the registry.
+HTML Based UI is also available within this project as a base version of UI development further upgraded to React. 
+```
+Url for Html : http://localhost:8888/static/index.html
+```
+```
 
-## WeatherMapAPI
 
-The WeatherMapAPI microservice is responsible for fetching weather information from OpenWeatherMap API. It is built using the Spring Web and Spring Cloud Netflix Eureka Discovery Client libraries. When a request is made to retrieve weather information for a particular location, this microservice will query the OpenWeatherMap API and return the weather data.
-
-## WeatherMapClient
-
-The WeatherMapClient microservice is responsible for handling requests from the UI microservice for weather information. It is built using Spring Web and Spring Cloud Netflix Eureka Discovery Client libraries. When a request is made for weather information for a particular location, the WeatherMapClient microservice will query the WeatherMapAPI microservice and return the weather data.
-
-## UI Microservice
-
-The UI microservice is responsible for displaying the weather information to the user. It is built using React and communicates with the WeatherMapClient microservice to retrieve weather information for a particular location.
-
-## Usage
-
-To retrieve weather information for a location, enter the location in the search bar on the UI and click the search button. The UI will display the current weather information for the location.
-
-## Credits
-
-The following libraries were used in the project:
-
-Spring Boot
-Spring Cloud Netflix Eureka
-Spring Web
-React
-OpenWeatherMap API
 
 
 ## License
