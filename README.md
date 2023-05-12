@@ -86,11 +86,13 @@ This will build the Docker images and deploy them to an Amazon Elastic Container
 
 ### Jenkins
     
-Pipeline scripts loacted at pipeline/jenkins
+Pipeline scripts loacted at pipeline/jenkins 
+configuration and functionality  will be demonstrate at demo
         
 ### AWS
     
 Pipeline scripts loacted at pipeline/aws
+configuration and functionality  will be demonstrate at demo
 
 ### TravisCI
 
