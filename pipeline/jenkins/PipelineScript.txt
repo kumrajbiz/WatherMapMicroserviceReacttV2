@@ -1,32 +1,44 @@
 pipeline {
     agent any
-	
-	tools {
-		jdk 'jdk11'
-		maven 'maven3'
-	}
-	
+    tools{
+        jdk 'jdk11'
+        maven 'maven3'
+    }
     stages {
-        stage('Build') {
+        stage(' Git checkout') {
             steps {
-                sh 'mvn clean install'
-            }
-        }
-        stage('Docker Build') {
-            steps {
-                sh 'docker build -t dockerfile .'
-                sh 'docker build -t weathermap-api-v3-microservice-3 ./WeatherMapAPIv3-Mocroservice3'
-                sh 'docker build -t weathermap-client-react ./WeatherMapClientReact'
-            }
-        }
-        stage('Docker Push') {
-            steps {
-                withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
-                    sh 'echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin'
-                    sh 'docker push kumrajbiz/weathermap-api-v3-microservice-2'
-                    sh 'docker push kumrajbiz/weathermap-api-v3-microservice-3'
-                    sh 'docker push kumrajbiz/weathermap-client-react'
+                echo 'checkout code'
+                git branch: 'prod', url: 'https://github.com/kumrajbiz/WatherMapMicroserviceReacttV2.git'
+                echo 'checkout code done '
+                dir("Folder structure") {
+                    sh "pwd"
                 }
+            }
+        }
+        stage('Project build') {
+            steps {
+                echo 'Building maven project'
+                
+                dir("${env.WORKSPACE}/Service-Registory"){
+                        echo "building Registry"
+                        sh "pwd"
+                        sh "mvn clean install"
+                    }
+                echo "${env.WORKSPACE}"
+                dir("${env.WORKSPACE}/WeatherMapAPIv3-Mocroservice2"){
+                        echo "building API"
+                        sh "pwd"
+                        sh "mvn clean install"
+                    }
+                echo "${env.WORKSPACE}"
+                                dir("${env.WORKSPACE}/WeatherClientV3-Microsevices"){
+                        echo "building Client"
+                        sh "pwd"
+                        sh "mvn clean install"
+                    }
+                echo "${env.WORKSPACE}"
+                
+                echo 'Building maven project done '
             }
         }
     }
