@@ -5,6 +5,7 @@ This is a project consisting of 3 microservices built with Spring Boot and 1 mic
 
 # WeatherMap Sequence diagram
 
+[WeatherMapSequence](https://github.com/kumrajbiz/WatherMapMicroserviceReacttV2/blob/prod/WeatherMapSequence.png)
 ![WeatherMapSequence](https://github.com/kumrajbiz/WatherMapMicroserviceReacttV2/blob/prod/WeatherMapSequence.png)
 
 # Architecture
@@ -92,6 +93,17 @@ Copy code
 ./deploy-to-ecs.sh
 ```
 This will build the Docker images and deploy them to an Amazon Elastic Container Service (ECS) cluster.
+
+## Onsite Production deployment 
+
+WeatherApi app will get deployed to the ``` nginx server ``` 
+Upgraded the reverse proxy for docker containers up in status
+Server registry\
+WeatherMap Api\
+WeatherMap Client\
+WeatherReact UI\
+Log wil be availabe for Nginx server : /var/log/nginx/access.log, /var/log/nginx/error.log\
+Dashboard will be availabe at :http://127.0.0.1/nginx_status
 
 ## CICD Integration
 
