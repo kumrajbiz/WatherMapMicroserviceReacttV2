@@ -65,7 +65,7 @@ Only accessible for project WeatherMapAPIv3-Mocroservice2 Microservice port will
 ```
 http://{host}:{port}/swagger-ui.html
 ```
-Docker based url for swagger : [http://172.18.0.3:8088/swagger-ui.html#/]http://172.18.0.3:8088/swagger-ui.html#/
+Docker based url for swagger : http://172.18.0.3:8088/swagger-ui.html#/
 Where {host} and {port} are the host and port where the application is running.
 For staging, Docker, Serverbased and AWS host will vary.
 
