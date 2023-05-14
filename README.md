@@ -41,10 +41,10 @@ Docker access to browser and postman : [http://172.18.0.3:8088/weather/paris()](
 The React-based UI provides users with a graphical interface for requesting weather information. based on request/response with the weather map client. Info provided in form of JSON or XML format and processed further at UI.
 HTML Based UI is also available within this project as a base version of UI development further upgraded to React. \
 ```
-React Ui access Url through Browser http://localhost:1234/\
+React Ui access Url through Browser http://localhost:1234/
 ```
 ```
-Html UI access Url through Browser : http://localhost:8888/static/index.html\
+Html UI access Url through Browser : http://localhost:8888/static/index.html
 React UI access Url trhrough browser : http://172.18.0.5:1234/ 
 ```
 ## Api Data source
