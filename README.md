@@ -13,33 +13,33 @@ The system follows a microservice architecture pattern, where each service is re
 
 ## Service Registry
 
-The service registry is responsible for registering and tracking the location of all the microservices in the system. It is built using the Spring Cloud Eureka server. All the other microservices will register with the service registry on startup and will be able to discover other microservices by querying the registry.\
+The service registry is responsible for registering and tracking the location of all the microservices in the system. It is built using the Spring Cloud Eureka server. All the other microservices will register with the service registry on startup and will be able to discover other microservices by querying the registry.
 Localhost access to browser and postman : [http://localhost:8761](http://localhost:8761)\
-Docker access to browser and postman : [http://172.18.0.2:8761/](http://172.18.0.2:8761/)\
+Docker access to browser and postman : [http://172.18.0.2:8761/](http://172.18.0.2:8761/)
 
 ## Weather Map Client
 
 The WeatherMapClient microservice is responsible for handling requests from the UI microservice for weather information. It is built using Spring Web and Spring Cloud Netflix Eureka Discovery Client libraries. When a request is made for weather information for a particular location, the WeatherMapClient microservice will query the WeatherMapAPI microservice and return the weather data.
 There are two methodology integrate tested working first- RestTemplet and second - feigh client
-Handle response internaly for UI display.\
+Handle response internaly for UI display.
 
 Localhost access to browser and postman : [http://localhost:8888/weather/paris](http://localhost:8888/weather/paris)\
-Docker access to browser and postman : [http://172.18.0.4:8888/weather/paris](http://172.18.0.4:8888/weather/paris)\
+Docker access to browser and postman : [http://172.18.0.4:8888/weather/paris](http://172.18.0.4:8888/weather/paris)
 
 
 ## Weather Map API
 
-The WeatherMapAPI microservice is responsible for fetching weather information from api.openweathermap.org. It is built using the Spring Web and Spring Cloud Netflix Eureka Discovery Client libraries. When a request is made to retrieve weather information for a particular location, this microservice will query the api.openweathermap.org and return the weather data.\
+The WeatherMapAPI microservice is responsible for fetching weather information from api.openweathermap.org. It is built using the Spring Web and Spring Cloud Netflix Eureka Discovery Client libraries. When a request is made to retrieve weather information for a particular location, this microservice will query the api.openweathermap.org and return the weather data.
 
 Localhost access to browser and postman : [http://localhost:8088/weather/paris()](http://localhost:8088/weather/paris)\
-Docker access to browser and postman : [http://172.18.0.3:8088/weather/paris()](http://172.18.0.4:8088/weather/paris)\
+Docker access to browser and postman : [http://172.18.0.3:8088/weather/paris()](http://172.18.0.4:8088/weather/paris)
 
 
 
 ## React UI
 
 The React-based UI provides users with a graphical interface for requesting weather information. based on request/response with the weather map client. Info provided in form of JSON or XML format and processed further at UI.
-HTML Based UI is also available within this project as a base version of UI development further upgraded to React. \
+HTML Based UI is also available within this project as a base version of UI development further upgraded to React.
 ```
 React Ui access Url through Browser http://localhost:1234/
 ```
@@ -64,8 +64,8 @@ Only accessible for project WeatherMapAPIv3-Mocroservice2 Microservice port will
 ```
 http://{host}:{port}/swagger-ui.html
 ```
-Docker based url for swagger : [http://172.18.0.3:8088/swagger-ui.html#/] http://172.18.0.3:8088/swagger-ui.html#/\
-Where {host} and {port} are the host and port where the application is running.\
+Docker based url for swagger : [http://172.18.0.3:8088/swagger-ui.html#/]http://172.18.0.3:8088/swagger-ui.html#/
+Where {host} and {port} are the host and port where the application is running.
 For staging, Docker, Serverbased and AWS host will vary.
 
 ## Docker integration 
