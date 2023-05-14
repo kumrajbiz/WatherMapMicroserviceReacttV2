@@ -14,6 +14,7 @@ The system follows a microservice architecture pattern, where each service is re
 ## Service Registry
 
 The service registry is responsible for registering and tracking the location of all the microservices in the system. It is built using the Spring Cloud Eureka server. All the other microservices will register with the service registry on startup and will be able to discover other microservices by querying the registry.
+
 Localhost access to browser and postman : [http://localhost:8761](http://localhost:8761)\
 Docker access to browser and postman : [http://172.18.0.2:8761/](http://172.18.0.2:8761/)
 
