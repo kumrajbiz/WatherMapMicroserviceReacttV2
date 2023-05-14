@@ -11,22 +11,31 @@ This is a project consisting of 3 microservices built with Spring Boot and 1 mic
 
 The system follows a microservice architecture pattern, where each service is responsible for a specific function and communicates with other services using RESTful APIs.
 
+## Service Registry
+
+The service registry is responsible for registering and tracking the location of all the microservices in the system. It is built using the Spring Cloud Eureka server. All the other microservices will register with the service registry on startup and will be able to discover other microservices by querying the registry.
+
+Localhost access to browser and postman : [http://localhost:8761()](http://localhost:8761)
+Docker access to browser and postman : [http://172.18.0.2:8761/()](http://172.18.0.2:8761/)
+
 ## Weather Map Client
 
 The WeatherMapClient microservice is responsible for handling requests from the UI microservice for weather information. It is built using Spring Web and Spring Cloud Netflix Eureka Discovery Client libraries. When a request is made for weather information for a particular location, the WeatherMapClient microservice will query the WeatherMapAPI microservice and return the weather data.
 There are two methodology integrate tested working first- RestTemplet and second - feigh client
 Handle response internaly for UI display.
-can be access through Postman : http://localhost:8888/weather/london
+
+Localhost access to browser and postman : [http://localhost:8888/weather/paris()](http://localhost:8888/weather/paris)
+Docker access to browser and postman : [http://172.18.0.4:8888/weather/paris()](http://172.18.0.4:8888/weather/paris)
+
 
 ## Weather Map API
 
 The WeatherMapAPI microservice is responsible for fetching weather information from api.openweathermap.org. It is built using the Spring Web and Spring Cloud Netflix Eureka Discovery Client libraries. When a request is made to retrieve weather information for a particular location, this microservice will query the api.openweathermap.org and return the weather data.
-can be access through Postman : http://localhost:8088/weather/london
 
-## Service Registry
+Localhost access to browser and postman : [http://localhost:8088/weather/paris()](http://localhost:8088/weather/paris)
+Docker access to browser and postman : [http://172.18.0.3:8088/weather/paris()](http://172.18.0.4:8088/weather/paris)
 
-The service registry is responsible for registering and tracking the location of all the microservices in the system. It is built using the Spring Cloud Eureka server. All the other microservices will register with the service registry on startup and will be able to discover other microservices by querying the registry.
-access to browser : http://localhost:8761
+
 
 ## React UI
 
@@ -36,7 +45,8 @@ HTML Based UI is also available within this project as a base version of UI deve
 React Ui access Url through Browser http://localhost:1234/
 ```
 ```
-Html Ui access Url through Browser : http://localhost:8888/static/index.html
+Html UI access Url through Browser : http://localhost:8888/static/index.html
+React UI access Url trhrough browser : http://172.18.0.5:1234/ 
 ```
 ## Api Data source
 ```
@@ -55,6 +65,7 @@ Only accessible for project WeatherMapAPIv3-Mocroservice2 Microservice port will
 ```
 http://{host}:{port}/swagger-ui.html
 ```
+Docker based url for swagger : [http://172.18.0.3:8088/swagger-ui.html#/()] http://172.18.0.3:8088/swagger-ui.html#/
 Where {host} and {port} are the host and port where the application is running.
 For staging, Docker, Serverbased and AWS host will vary.
 
