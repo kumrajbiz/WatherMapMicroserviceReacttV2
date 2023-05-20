@@ -4,9 +4,9 @@ This system provides an efficient and scalable way of retrieving and displaying 
 This is a project consisting of 3 microservices built with Spring Boot and 1 microservice built with React as the UI. The project allows users to retrieve weather information for a specified location.
 
 # WeatherMap Sequence diagram
+![WeatherMapSequence](https://github.com/kumrajbiz/WatherMapMicroserviceReacttV2/assets/126977951/ca463d4e-869a-4571-a98d-66f2dfd65c50)
 
-[WeatherMapSequence](https://github.com/kumrajbiz/WatherMapMicroserviceReacttV2/blob/prod/WeatherMapSequence.png)
-![WeatherMapSequence](https://github.com/kumrajbiz/WatherMapMicroserviceReacttV2/blob/prod/WeatherMapSequence.png)
+
 
 # Architecture
 
