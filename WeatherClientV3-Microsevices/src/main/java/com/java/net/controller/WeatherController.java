@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.java.net.entity.WeatherData;
 import com.java.net.service.WeatherServiceimpl;
 
+import lombok.extern.slf4j.Slf4j;
+
 /*
  * Author : Rajesh kumar
  * */
@@ -21,7 +23,7 @@ import com.java.net.service.WeatherServiceimpl;
 @RequestMapping
 //@CrossOrigin(origins = "http://172.17.0.1:1234/")
 @CrossOrigin("*")
-
+@Slf4j
 public class WeatherController {
 
    
@@ -35,7 +37,7 @@ public class WeatherController {
     	System.out.println("Hitting Controller of Client with location"+ location);
     	try {
     		weather = weatherService.getWeatherByLocation(location);
-		System.out.println("Data from Weather Client for : "+location+" : "+weather.toString());
+    		log.info("Data from Weather Client for : "+location+" : "+weather.toString());
     		return ResponseEntity.ok(weather);
         } catch (Exception e) {
         	weather = new WeatherData();

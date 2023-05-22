@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.java.net.entity.WeatherData;
 import com.java.net.service.WeatherService;
 
+import lombok.extern.slf4j.Slf4j;
+
 /*
  * Author Rajesh kumar
  * */
@@ -18,6 +20,7 @@ import com.java.net.service.WeatherService;
 @CrossOrigin
 @RestController
 @RequestMapping
+@Slf4j
 public class WeatherController {
 	
 	@Autowired
@@ -28,7 +31,7 @@ public class WeatherController {
     	 WeatherData weatherData = null;
     	try {
             weatherData = weatherService.currentService(location);
-		System.out.println("Data from Weather API "+weatherData.toString());
+		log.info("Data from Weather API "+weatherData.toString());
             return ResponseEntity.ok(weatherData);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(weatherData);

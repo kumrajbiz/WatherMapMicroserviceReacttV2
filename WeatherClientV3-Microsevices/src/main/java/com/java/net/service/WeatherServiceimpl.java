@@ -20,11 +20,13 @@ import com.java.net.entity.Weather;
 import com.java.net.entity.WeatherData;
 import com.java.net.entity.Wind;
 
+import lombok.extern.slf4j.Slf4j;
+
 /*
  * Author : Rajesh kumar
  * */
 
-
+@Slf4j
 @Service
 public class WeatherServiceimpl implements WeatherService {
    
@@ -39,16 +41,14 @@ public class WeatherServiceimpl implements WeatherService {
 		String response = null;
 		String jsonResponse = null;
 		JsonNode rootNode = null;
-		System.out.println("Hitting Service of Client with location and before hitting Feign controll"+ location);
 		//response = weatherClient.getWeatherByLocation(location);
 		response = restTemplate.getForObject("http://WEATHERMAPAPI:8088/weather/"+location, String.class);
-		System.out.println("Hitting Service of Client with location and After hitting Feign controll"+ location);
 		ObjectMapper objectMapper = new ObjectMapper();
 
 		WeatherData weatherData = new WeatherData();
 			try {
 				jsonResponse = objectMapper.writeValueAsString(objectMapper.readValue(response, Object.class));
-				System.out.println("Data string : "+jsonResponse);
+				log.info("Data string : "+jsonResponse);
 				rootNode = objectMapper.readTree(jsonResponse);
 			} catch (Exception e) {
 				e.printStackTrace();

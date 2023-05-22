@@ -12,6 +12,7 @@ import java.util.Map;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -26,12 +27,15 @@ import com.java.net.entity.Weather;
 import com.java.net.entity.WeatherData;
 import com.java.net.entity.Wind;
 
+import lombok.extern.slf4j.Slf4j;
+
 /*
  * Author Rajesh kumar
  * */
 
 
 @Service
+@Slf4j
 public class WeatherService {
 	
 	//https://api.openweathermap.org/data/2.5/weather?q=patna&units=metric&appid=d2929e9483efc82c82c32ee7e02d563e
@@ -39,7 +43,7 @@ public class WeatherService {
 	//private final String URL ="https://api.openweathermap.org/data/2.5/forecast?q=";
 	private final String URL ="https://api.openweathermap.org/data/2.5/weather?q=";
 	private final String APPID="d2929e9483efc82c82c32ee7e02d563e";
-
+	//@Cacheable(value = "weatherData", key = "location")
 	public WeatherData currentService(String location) {
 		WeatherData weatherData = new WeatherData();
 		ObjectMapper objectMapper = new ObjectMapper();
@@ -57,7 +61,7 @@ public class WeatherService {
                     responseBuilder.append(line);
                 }
                 String jsonString = responseBuilder.toString();
-                System.out.println("Data string : "+jsonString);
+                log.info("Data string : "+jsonString);
                 rootNode = objectMapper.readTree(jsonString);
             }
 
