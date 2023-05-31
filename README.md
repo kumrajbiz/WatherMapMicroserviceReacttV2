@@ -94,6 +94,8 @@ Copy code
 ```
 This will build the Docker images and deploy them to an Amazon Elastic Container Service (ECS) cluster.
 
+#Kubernetes integration
+
 ## Onsite Production deployment 
 
 WeatherApi app will get deployed to the ``` nginx server ``` 
