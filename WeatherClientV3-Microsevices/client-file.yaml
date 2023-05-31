@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: weatherclient
+  namespace: development
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: weatherclient
+  template:
+    metadata:
+      labels:
+        app: weatherclient
+    spec:
+      containers:
+        - name: weatherclient
+          image: kumrajbiz/weather_client_ms_k8s:v0.0.5
+          ports:
+            - containerPort: 8888
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: default
+          # Add any additional environment variables as needed
+

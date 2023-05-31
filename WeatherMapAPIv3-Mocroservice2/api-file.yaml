@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: weatherapi
+  namespace: development
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: weatherapi
+  template:
+    metadata:
+      labels:
+        app: weatherapi
+    spec:
+      containers:
+        - name: weatherapi
+          image: kumrajbiz/weather_map_api_ms_k8s:v0.0.5
+          ports:
+            - containerPort: 8088
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: default
+          # Add any additional environment variables as needed
+

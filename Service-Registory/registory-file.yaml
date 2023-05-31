@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: serviceregistry
+  namespace: development
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: serviceregistry
+  template:
+    metadata:
+      labels:
+        app: serviceregistry
+    spec:
+      containers:
+        - name: serviceregistry
+          image: kumrajbiz/service_registry_k8s:v0.0.5
+          ports:
+            - containerPort: 8761
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: default
+          # Add any additional environment variables as needed
+
