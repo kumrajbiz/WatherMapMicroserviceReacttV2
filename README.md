@@ -78,6 +78,15 @@ Prepequesite
 1. create docker based local network
 2. Running images with name and network option
 
+## Kubernetes integration
+complete project has been integrated with kubernetes to automate the deployment, scaling, and management of containerized applications for running distributed systems also to deploying and managing applications in production environments.
+
+Installation and setup of a Kubernetes cluster
+Deploying containerized applications using Kubernetes manifests
+Monitoring and logging of Kubernetes clusters
+Extending Kubernetes dashboard with minikube
+Integration with other tools and platforms in the Kubernetes ecosystem
+
 ### also
 
 You can run the application locally using Docker Compose by running the ```s3/weathermap_dc_v3.yaml``` file with docker-compose file name up -d  in the root directory of the repository
@@ -94,7 +103,7 @@ Copy code
 ```
 This will build the Docker images and deploy them to an Amazon Elastic Container Service (ECS) cluster.
 
-#Kubernetes integration
+
 
 ## Onsite Production deployment 
 
