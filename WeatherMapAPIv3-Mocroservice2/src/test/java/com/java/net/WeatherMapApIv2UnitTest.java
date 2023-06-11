@@ -15,20 +15,20 @@ import com.java.net.service.WeatherService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-class WeatherMapApIv2MocroserviceApplicationTests {
+class WeatherMapApIv2UnitTest {
 
 	@Test
 	void contextLoads() {
 	}
 	
 	@Autowired
-	private WeatherService messageService;
+	private WeatherService weatherService;
 	
 	 @Test
 	 @DisplayName("Check the service calling openweatherapi")
 	 void testWatherService() {
 		String location = "Goa";
-	    WeatherData data = messageService.currentService(location);
+	    WeatherData data = weatherService.currentService(location);
 	    assertTrue(location.equals(data.getName()));
 	 }
 	

@@ -14,6 +14,8 @@ public class Main {
     private Double temp_max;
     private int pressure;
     private int humidity;
+    private int sea_level;
+    private int grnd_level;
     
 	public Double getTemp() {
 		return temp;
@@ -51,7 +53,23 @@ public class Main {
 	public void setHumidity(int humidity) {
 		this.humidity = humidity;
 	}
-	public Main(Double temp, Double feels_like, Double temp_min, Double temp_max, int pressure, int humidity) {
+	public int getSea_level() {
+		return sea_level;
+	}
+	public void setSea_level(int sea_level) {
+		this.sea_level = sea_level;
+	}
+	public int getGrnd_level() {
+		return grnd_level;
+	}
+	public void setGrnd_level(int grnd_level) {
+		this.grnd_level = grnd_level;
+	}
+	public Main() {
+		super();
+	}
+	public Main(Double temp, Double feels_like, Double temp_min, Double temp_max, int pressure, int humidity, int seaLevel,
+			int grndLevel) {
 		super();
 		this.temp = temp;
 		this.feels_like = feels_like;
@@ -59,10 +77,17 @@ public class Main {
 		this.temp_max = temp_max;
 		this.pressure = pressure;
 		this.humidity = humidity;
+		this.sea_level = sea_level;
+		this.grnd_level = grnd_level;
 	}
-	public Main() {
-		super();
+	@Override
+	public String toString() {
+		return "Main [temp=" + temp + ", feels_like=" + feels_like + ", temp_min=" + temp_min + ", temp_max=" + temp_max
+				+ ", pressure=" + pressure + ", humidity=" + humidity + ", seaLevel=" + sea_level + ", grndLevel="
+				+ grnd_level + "]";
 	}
+		
+	
 
 }
 

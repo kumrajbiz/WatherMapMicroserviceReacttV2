@@ -8,6 +8,7 @@ package com.java.net.entity;
 public class Wind {
     private Double speed;
     private int deg;
+    private Double gust;
     
     
 	public Double getSpeed() {
@@ -22,10 +23,17 @@ public class Wind {
 	public void setDeg(int deg) {
 		this.deg = deg;
 	}
-	public Wind(Double speed, int deg) {
+	public Double getGust() {
+		return gust;
+	}
+	public void setGust(Double gust) {
+		this.gust=gust;
+	}
+	public Wind(Double speed, int deg, Double gust) {
 		super();
 		this.speed = speed;
 		this.deg = deg;
+		this.gust = gust;
 	}
 	public Wind() {
 		super();
